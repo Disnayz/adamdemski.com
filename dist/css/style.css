@@ -1,5 +1,3 @@
-/* Deep modern theme for Adam Demski portfolio — v2 */
-
 /* Design tokens */
 :root{
   --bg: #05070D;                      /* deep black-blue */
@@ -41,17 +39,22 @@ body {
   background: rgba(5,7,13,0.6);
   backdrop-filter: blur(12px);
   border-bottom:1px solid rgba(255,255,255,0.06);
+
+  /* transition for shrink behavior */
+  transition: padding 220ms ease, backdrop-filter 220ms ease, border-bottom 220ms ease, box-shadow 220ms ease;
 }
 .header-inner{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  transition: transform 220ms ease;
 }
 .logo a{
   font-size:22px;
   color:var(--text);
   text-decoration:none;
   font-weight:700;
+  transition: font-size 220ms ease;
 }
 .top-nav{
   display:flex;
@@ -69,6 +72,32 @@ body {
   background: rgba(255,255,255,0.05);
   color:var(--text);
   box-shadow:0 0 12px rgba(94,234,212,0.25);
+}
+
+.site-header.shrink {
+  padding: 6px 0; 
+  background: rgba(5,7,13,0.75); 
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+}
+
+.site-header.shrink .logo a {
+  font-size:16px;   
+  font-weight:700;
+}
+
+.site-header.shrink .top-nav a {
+  padding: 6px 8px;      /* tighter nav link padding */
+  font-size: 13px;       /* slightly smaller nav text */
+}
+
+/* Hero top-gap tweak to avoid visual jump when header shrinks */
+.hero {
+  transition: margin-top 220ms ease, padding 220ms ease;
+}
+.site-header.shrink + .container .hero,
+.site-header.shrink ~ .container .hero {
+  margin-top: 6px;
 }
 
 /* Hero */
@@ -179,6 +208,21 @@ body {
   padding:28px 0;
   color:var(--muted);
   font-size:14px;
+}
+
+/* Ensure nav is visible on small screens (we removed hamburger) */
+@media (max-width:720px) {
+  .top-nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    align-items:center;
+  }
+  .top-nav a{
+    padding:8px 10px;
+    font-size:14px;
+  }
 }
 
 /* Mobile adjustments */
