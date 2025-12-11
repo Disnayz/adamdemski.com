@@ -19,7 +19,6 @@
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="mobile-menu" aria-expanded="false" aria-controls="nav">☰</button>
     </div>
   </header>
 
@@ -135,16 +134,30 @@
     </div>
   </footer>
 
-  <script>
-    // small UI: mobile menu and year
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const btn = document.querySelector('.mobile-menu');
-    const nav = document.querySelector('.top-nav');
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
-  </script>
+<script>
+  // Header shrink-on-scroll
+  (function() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    const THRESHOLD = 60; 
+    let ticking = false;
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY || window.pageYOffset;
+        if (y > THRESHOLD) header.classList.add('shrink');
+        else header.classList.remove('shrink');
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
 </body>
 </html>
