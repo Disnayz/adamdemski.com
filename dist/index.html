@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Adam Demski</title>
-  </head>
-  <body>
-    <h1>Hello, I'm Adam!</h1>
-    <p>My portfolio is coming soon 🚀</p>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adam Demski — Portfolio (WIP)</title>
+
+  <meta name="description" content="Adam Demski — Portfolio. Work in progress." />
+  <meta property="og:title" content="Adam Demski — Portfolio" />
+  <meta property="og:description" content="Portfolio — work in progress." />
+  <meta property="og:url" content="https://adamdemski.com/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo"><a href="/">Adam Demski</a></h1>
+      <nav class="top-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Hi — I’m <span class="accent">Adam</span></h2>
+      <p class="lead">Security-minded developer. Building tools, learning infra, and documenting projects.</p>
+      <p class="wip">Portfolio is <strong>work in progress</strong> — check back soon.</p>
+      <p class="actions">
+        <a class="btn" href="#projects">See projects</a>
+        <a class="btn ghost" href="/resume.pdf" target="_blank" rel="noopener">Download resume</a>
+      </p>
+    </section>
+
+    <section id="about" class="card">
+      <h3>About</h3>
+      <p>Cybersecurity & software engineering enthusiast. I enjoy networking, Wireshark, and secure-by-default design. This site will showcase projects, notes, and a resume.</p>
+    </section>
+
+    <section id="projects" class="card">
+      <h3>Projects (preview)</h3>
+      <ul class="projects">
+        <li>
+          <strong>Project One</strong> — short description. <em>(coming soon)</em>
+        </li>
+        <li>
+          <strong>Project Two</strong> — short description. <em>(coming soon)</em>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="card">
+      <h3>Contact</h3>
+      <p>For inquiries: <a href="mailto:contact@adamdemski.com">contact@adamdemski.com</a></p>
+      <p>Or follow on <a href="https://github.com/adamdemski" target="_blank" rel="noopener">GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Adam Demski · Built with Cloudflare Workers & Assets</small>
+    </div>
+  </footer>
+
+  <script>
+    // small niceties
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
