@@ -135,29 +135,27 @@
   </footer>
 
 <script>
-  // Header shrink-on-scroll
   (function() {
     const header = document.querySelector('.site-header');
     if (!header) return;
-
-    const THRESHOLD = 60; 
+    const THRESHOLD = 60;
     let ticking = false;
-
+    function update() {
+      const y = window.scrollY || window.pageYOffset;
+      if (y > THRESHOLD) header.classList.add('shrink');
+      else header.classList.remove('shrink');
+      ticking = false;
+    }
     function onScroll() {
       if (ticking) return;
       ticking = true;
-      window.requestAnimationFrame(() => {
-        const y = window.scrollY || window.pageYOffset;
-        if (y > THRESHOLD) header.classList.add('shrink');
-        else header.classList.remove('shrink');
-        ticking = false;
-      });
+      window.requestAnimationFrame(update);
     }
-
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    update();
   })();
 </script>
+
 
 </body>
 </html>
