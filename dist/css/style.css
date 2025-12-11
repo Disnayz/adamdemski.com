@@ -1,4 +1,4 @@
-/* Design tokens */
+
 :root{
   --bg: #05070D;                      /* deep black-blue */
   --bg2: #0A0F1C;                     /* secondary depth */
@@ -17,6 +17,7 @@
 
 /* Base */
 * { box-sizing:border-box; }
+html,body{height:100%}
 body {
   margin:0;
   background: radial-gradient(circle at 20% 20%, #0e1629, #05070D 70%);
@@ -30,77 +31,95 @@ body {
   padding:32px;
 }
 
-/* Header */
+
 .site-header{
   position:sticky;
   top:0;
   z-index:50;
-  padding:10px 0;
+  padding:18px 0;                  /* default vertical padding */
+  min-height:78px;                 /* visible panel height */
   background: rgba(5,7,13,0.6);
   backdrop-filter: blur(12px);
   border-bottom:1px solid rgba(255,255,255,0.06);
-
-  /* transition for shrink behavior */
-  transition: padding 220ms ease, backdrop-filter 220ms ease, border-bottom 220ms ease, box-shadow 220ms ease;
+  transition:
+    padding 260ms cubic-bezier(.2,.9,.2,1),
+    min-height 260ms cubic-bezier(.2,.9,.2,1),
+    box-shadow 260ms ease,
+    background 260ms ease;
+  display:block;
 }
+
+/* inner layout */
 .header-inner{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  transition: transform 220ms ease;
+  gap:18px;
+  padding:0 8px;
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1);
 }
+
+/* logo & nav defaults */
 .logo a{
+  display:inline-block;
   font-size:22px;
   color:var(--text);
   text-decoration:none;
   font-weight:700;
-  transition: font-size 220ms ease;
+  line-height:1;
+  transform-origin:left center;
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), font-size 260ms;
 }
 .top-nav{
   display:flex;
   gap:20px;
+  align-items:center;
+  transition: gap 260ms ease;
 }
 .top-nav a{
   color:var(--muted);
   text-decoration:none;
   font-weight:600;
-  padding:8px 12px;
+  padding:10px 12px;
   border-radius:10px;
-  transition:0.2s ease;
+  transition: padding 220ms ease, font-size 220ms ease, color 200ms;
 }
 .top-nav a:hover{
   background: rgba(255,255,255,0.05);
   color:var(--text);
-  box-shadow:0 0 12px rgba(94,234,212,0.25);
+  box-shadow:0 0 12px rgba(94,234,212,0.18);
 }
 
+/* shrink state: reduces panel height, padding and scales logo/nav */
 .site-header.shrink {
-  padding: 6px 0; 
-  background: rgba(5,7,13,0.75); 
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+  padding:6px 0;               /* compressed vertical padding */
+  min-height:48px;            /* smaller panel height */
+  background: rgba(5,7,13,0.78);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border-bottom:1px solid rgba(255,255,255,0.04);
 }
 
-.site-header.shrink .logo a {
-  font-size:16px;   
-  font-weight:700;
+/* visually scale the logo instead of changing font-size for smoother animation */
+.site-header.shrink .logo a{
+  transform: scale(0.78);
 }
 
-.site-header.shrink .top-nav a {
-  padding: 6px 8px;      /* tighter nav link padding */
-  font-size: 13px;       /* slightly smaller nav text */
+/* tighten nav spacing for shrink state */
+.site-header.shrink .top-nav{
+  gap:10px;
+}
+.site-header.shrink .top-nav a{
+  padding:6px 8px;
+  font-size:13px;
 }
 
-/* Hero top-gap tweak to avoid visual jump when header shrinks */
-.hero {
-  transition: margin-top 220ms ease, padding 220ms ease;
-}
+/* prevent content jump when header shrinks */
 .site-header.shrink + .container .hero,
 .site-header.shrink ~ .container .hero {
-  margin-top: 6px;
+  margin-top:8px;
+  transition: margin-top 260ms ease, padding 260ms ease;
 }
 
-/* Hero */
 .hero{
   padding:48px;
   border-radius:var(--radius);
@@ -110,22 +129,12 @@ body {
   backdrop-filter: blur(6px);
   margin-bottom:26px;
 }
-.hero h2{
-  font-size:38px;
-  margin:0;
-}
+.hero h2{ font-size:38px; margin:0; }
 .accent{ color:var(--accent); font-weight:800; }
-.lead{
-  color:var(--muted);
-  max-width:70ch;
-  font-size:18px;
-}
-.actions{
-  margin-top:18px;
-  display:flex;
-  gap:12px;
-}
+.lead{ color:var(--muted); max-width:70ch; font-size:18px; }
+.actions{ margin-top:18px; display:flex; gap:12px; }
 
+/* Buttons */
 .btn{
   padding:12px 20px;
   background: linear-gradient(120deg, var(--accent), var(--accent2));
@@ -134,20 +143,12 @@ body {
   text-decoration:none;
   font-weight:700;
   color:#08121a;
-  box-shadow:0 8px 18px rgba(56,189,248,0.3);
-  transition: transform 0.15s ease;
+  box-shadow:0 8px 18px rgba(56,189,248,0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.btn:hover{
-  transform: translateY(-3px);
-}
-.btn.ghost{
-  background: transparent;
-  border:1px solid rgba(255,255,255,0.1);
-  color:var(--text);
-  box-shadow:none;
-}
+.btn:hover{ transform: translateY(-3px); box-shadow:0 14px 30px rgba(56,189,248,0.18); }
+.btn.ghost{ background: transparent; border:1px solid rgba(255,255,255,0.1); color:var(--text); box-shadow:none; }
 
-/* Cards */
 .card{
   background: linear-gradient(180deg, rgba(20,30,50,0.55), rgba(10,15,25,0.6));
   border:1px solid rgba(255,255,255,0.06);
@@ -158,8 +159,6 @@ body {
   margin-bottom:24px;
 }
 .card h3{ margin-top:0; font-size:22px; }
-
-/* Text styling */
 .muted{ color:var(--muted); font-size:14px; }
 
 /* Projects grid */
@@ -174,19 +173,14 @@ body {
   border-radius:12px;
   border:1px solid rgba(255,255,255,0.05);
   box-shadow: var(--shadow-2);
-  transition:0.25s ease;
+  transition: transform 250ms ease, box-shadow 250ms ease;
 }
 .project:hover{
-  transform: translateY(-4px);
-  box-shadow:0 16px 32px rgba(0,0,0,0.6);
+  transform: translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
-.project .meta{
-  margin-top:10px;
-  color:var(--muted);
-  font-size:13px;
-}
+.project .meta{ margin-top:10px; color:var(--muted); font-size:13px; }
 
-/* Certificates */
 .certs{ list-style:none; padding-left:0; }
 .certs li{
   background: rgba(12,18,30,0.55);
@@ -210,7 +204,6 @@ body {
   font-size:14px;
 }
 
-/* Ensure nav is visible on small screens (we removed hamburger) */
 @media (max-width:720px) {
   .top-nav{
     display:flex;
