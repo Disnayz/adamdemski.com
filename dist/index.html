@@ -3,34 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Adam Demski - Portfolio</title>
-
-  <meta name="description" content="Adam Demski — Portfolio. Work in progress." />
-  <meta property="og:title" content="Adam Demski — Portfolio" />
-  <meta property="og:description" content="Portfolio — work in progress." />
-  <meta property="og:url" content="https://adamdemski.com/" />
-  <meta name="twitter:card" content="summary" />
-
+  <title>Adam Demski — Portfolio</title>
+  <meta name="description" content="Adam Demski — cybersecurity & software engineering portfolio" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <h1 class="logo"><a href="/">Adam Demski</a></h1>
-      <nav class="top-nav">
+    <div class="container header-inner">
+      <h1 class="logo"><a href="#top">Adam Demski</a></h1>
+      <nav class="top-nav" aria-label="Main navigation">
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="mobile-menu" aria-expanded="false" aria-controls="nav">☰</button>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h2>Hi I’m <span class="accent">Adam</span></h2>
-      <p class="lead">Security-minded developer. Building tools, learning infra, and documenting projects.</p>
-      <p class="wip">Portfolio is <strong>work in progress</strong> — check back soon.</p>
+  <main id="top" class="container">
+    <section class="hero card">
+      <h2>Hello — I’m <span class="accent">Adam</span></h2>
+      <p class="lead">Security-minded developer focusing on networking, Wireshark, and secure-by-default tooling. This portfolio is a work-in-progress — below are highlights.</p>
       <p class="actions">
         <a class="btn" href="#projects">See projects</a>
         <a class="btn ghost" href="/resume.pdf" target="_blank" rel="noopener">Download resume</a>
@@ -39,24 +35,104 @@
 
     <section id="about" class="card">
       <h3>About</h3>
-      <p>Cybersecurity & software engineering enthusiast. I enjoy networking, Wireshark, and secure-by-default design. This site will showcase projects, notes, and a resume.</p>
-    </section>
-
-    <section id="projects" class="card">
-      <h3>Projects (preview)</h3>
-      <ul class="projects">
-        <li>
-          <strong>Project One</strong> — short description. <em>(coming soon)</em>
-        </li>
-        <li>
-          <strong>Project Two</strong> — short description. <em>(coming soon)</em>
-        </li>
+      <p>Junior/Entry-level cybersecurity & software engineering enthusiast. I enjoy exploring network captures, automating small tools, and learning secure system design. I’m currently building projects that demonstrate practical skills in packet analysis, automation, and cloud debugging.</p>
+      <ul class="skills">
+        <li>Wireshark & network troubleshooting</li>
+        <li>Python & shell scripting</li>
+        <li>Cloud fundamentals (Workers, Pages, basic AWS)</li>
+        <li>Secure development practices</li>
       </ul>
     </section>
 
+    <section id="experience" class="card">
+  <h3>Experience</h3>
+
+  <article class="experience-item">
+    <h4>Technical Support Engineer — Zscaler</h4>
+    <p class="muted">Mar 2025 — Present · Wrocław (Hybrid)</p>
+    <ul>
+      <li>Level 2 support for Zscaler Zero Trust Exchange products; troubleshoot customer network flows and proxy issues.</li>
+      <li>Analyze packet captures and logs (Wireshark, proxy logs) to identify routing, policy, and TLS issues.</li>
+      <li>Collaborate with engineering teams and document solutions for the internal knowledge base.</li>
+      <li>Provide timely technical responses and guidance to customers and internal stakeholders.</li>
+    </ul>
+  </article>
+
+  <article class="experience-item">
+    <h4>Specialist — Security / IT — LG Energy Solution</h4>
+    <p class="muted">Sep 2024 — Mar 2025 · Wrocław (On-site)</p>
+    <ul>
+      <li>Managed ID card issuance and modifications and configured access control zones and permissions.</li>
+      <li>Operated and troubleshooted physical security systems (ID readers, access control hardware) and related network components.</li>
+      <li>Maintained the Photo Permission system and assisted with physical penetration testing activities.</li>
+      <li>Supported overall security infrastructure to ensure reliable operation of site access systems.</li>
+    </ul>
+  </article>
+
+  <article class="experience-item">
+    <h4>Intern — IT Support — NEONET S.A.</h4>
+    <p class="muted">Apr 2024 — Jun 2024 · Wrocław (On-site)</p>
+    <ul>
+      <li>Handled support tickets and customer inquiries via the ticketing system.</li>
+      <li>Configured and deployed workstations, including hardware, OS, and software setup.</li>
+      <li>Diagnosed and resolved common hardware, software, and local network issues.</li>
+    </ul>
+  </article>
+</section>
+
+
+    <section id="projects" class="card">
+      <h3>Projects</h3>
+      <div class="projects-grid">
+        <div class="project">
+          <h4>Packet Sniffer Helper</h4>
+          <p>Small Python tool to extract flows and summarize suspicious connections from pcap files. (Demo coming soon)</p>
+          <p class="meta"><strong>Tech:</strong> Python, Scapy</p>
+        </div>
+
+        <div class="project">
+          <h4>Portfolio Site (this)</h4>
+          <p>Static portfolio deployed on Cloudflare Workers + Assets. Demonstrates deployment, DNS, and CI knowledge.</p>
+          <p class="meta"><strong>Tech:</strong> HTML, CSS, Wrangler</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="card">
+  <h3>Education & Certificates</h3>
+
+  <ul class="certs">
+    <li>
+      <strong>CompTIA Security+</strong><br/>
+      <span class="muted">Issued Dec 2025 · Expires Dec 2028</span><br/>
+      Credential ID: <code>9700d54c84784109bd7e499b8804bb11</code><br/>
+      <a href="/assets/certs/CompTIA Security+.pdf" target="_blank" rel="noopener">Download certificate (PDF)</a>
+      <p class="muted small">Skills: Cryptography · Computer Forensics · Data Security · Disaster Recovery Planning · Firewall Configuration · Malware Identification · Threat Detection · Threat Management · Mobile Device Security · Network Security · Information Security · Access Control</p>
+    </li>
+
+    <li>
+      <strong>Zscaler Digital Transformation Administrator</strong><br/>
+      <span class="muted">Issued Apr 2025 · Expires Apr 2027</span><br/>
+      <p class="muted small">Skills: Cloud Security · Cybersecurity · Digital Transformation · Network Administration · SaaS · Security Engineering</p>
+    </li>
+
+    <li>
+      <strong>Cybersecurity & Social Engineering — LG Energy Solution</strong><br/>
+      <span class="muted">Issued Nov 2024</span><br/>
+      Credential ID: <code>No. 1124-10</code><br/>
+      <p class="muted small">Skills: IT attack vectors · Cybersecurity · Detecting and reacting to phishing and spoofing · Security theory</p>
+    </li>
+  </ul>
+
+  <p class="muted">Tip: upload certificate PDFs to <code>/assets/certs/</code> (e.g. <code>/assets/certs/CompTIA Security+.pdf</code>) and the links above will work. If you prefer, I can generate small thumbnail previews and links for each certificate.</p>
+</section>
+
+
     <section id="contact" class="card">
       <h3>Contact</h3>
-      <p>For inquiries: <a href="mailto:contact@adamdemski.com">contact@adamdemski.com</a></p>
+      <p>Reach me at <a href="mailto:contact@adamdemski.com">contact@adamdemski.com</a></p>
+      <p>Or find me on <a href="https://github.com/adamdemski" target="_blank" rel="noopener">GitHub</a>.</p>
+      <p>If you’d like to request my CV, use the email above or download it from the top.</p>
     </section>
   </main>
 
@@ -67,8 +143,15 @@
   </footer>
 
   <script>
-    // small niceties
+    // small UI: mobile menu and year
     document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.querySelector('.mobile-menu');
+    const nav = document.querySelector('.top-nav');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
