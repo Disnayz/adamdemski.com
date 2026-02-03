@@ -1,4 +1,4 @@
-<!doctype html>
+<!--<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,103 +7,112 @@
   <meta name="description" content="Adam Demski — cybersecurity & software engineering portfolio" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+<head>
+ -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Czy zostaniesz moją walentynką? 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .valentine-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      position: relative;
+    }
+
+    .valentine-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      max-width: 500px;
+      z-index: 2;
+      color: #000;
+    }
+
+    .valentine-card h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .valentine-card p {
+      font-size: 1.2rem;
+    }
+
+    .actions {
+      margin-top: 2rem;
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .yes-btn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no-btn {
+      background: #ccc;
+      position: absolute;
+      left: 60%;
+      top: 0;
+    }
+
+    /* 💖 Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 1.5rem;
+      animation: floatUp linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    #gifContainer img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+    }
+  </style>
 </head>
+
 <body>
-
-<!-- =========================
-     VALENTINE PAGE
-     ========================= -->
-
-<style>
-  body {
-    margin: 0;
-    overflow: hidden;
-  }
-
-  .valentine-wrapper {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-    font-family: system-ui, sans-serif;
-    position: relative;
-  }
-
-.valentine-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  max-width: 500px;
-  z-index: 2;
-  color: #000; 
-}
-
-
-  .valentine-card h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .valentine-card p {
-    font-size: 1.2rem;
-  }
-
-  .actions {
-    margin-top: 2rem;
-    position: relative;
-    height: 80px;
-  }
-
-  button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-
-  .yes-btn {
-    background: #ff4d6d;
-    color: white;
-    margin-right: 1rem;
-  }
-
-.no-btn {
-  background: #ccc;
-  position: absolute;
-  left: 140px; 
-  top: 0;
-}
-
-  /* 💖 Floating hearts */
-  .heart {
-    position: absolute;
-    bottom: -20px;
-    font-size: 1.5rem;
-    animation: floatUp linear infinite;
-    opacity: 0.8;
-  }
-
-  @keyframes floatUp {
-    from {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-    to {
-      transform: translateY(-110vh) scale(1.5);
-      opacity: 0;
-    }
-  }
-</style>
 
 <main class="valentine-wrapper">
   <section class="valentine-card">
-    <h1>💖 Czy zostaniesz moją Walentynką?? 💖</h1>
-    <div class="actions">
-      <button class="yes-btn" onclick="alert('Best decision ever ❤️')">
+    <h1>💖 Czy zostaniesz moją Walentynka? 💖</h1>
+    <div class="actions" id="actions">
+      <button class="yes-btn" id="yesBtn">
         Tak 💕
       </button>
 
@@ -111,11 +120,18 @@
         Nie :C
       </button>
     </div>
+
+    <div id="gifContainer" style="display:none;">
+      <img
+        src="https://media.tenor.com/5nR0J6p5B2cAAAAC/cat-cute.gif"
+        alt="Happy cat jumping"
+      />
+    </div>
   </section>
 </main>
 
 <script>
-  /* 💖 Floating hearts generator */
+  /* 💖 Floating hearts */
   function createHeart() {
     const heart = document.createElement('div');
     heart.className = 'heart';
@@ -123,7 +139,6 @@
     heart.style.left = Math.random() * 100 + 'vw';
     heart.style.animationDuration = (3 + Math.random() * 4) + 's';
     document.body.appendChild(heart);
-
     setTimeout(() => heart.remove(), 7000);
   }
 
@@ -131,13 +146,25 @@
 
   /* 🏃 No button runs away */
   const noBtn = document.getElementById('noBtn');
-
   noBtn.addEventListener('mouseenter', () => {
     const x = Math.random() * 300 - 150;
     const y = Math.random() * 150 - 75;
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
   });
+
+  /* 😺 Yes → show GIF */
+  const yesBtn = document.getElementById('yesBtn');
+  const gifContainer = document.getElementById('gifContainer');
+  const actions = document.getElementById('actions');
+
+  yesBtn.addEventListener('click', () => {
+    actions.style.display = 'none';
+    gifContainer.style.display = 'block';
+  });
 </script>
+
+</body>
+</html>
 
 <!-- =========================
      ORIGINAL PORTFOLIO SITE
