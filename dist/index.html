@@ -1,4 +1,4 @@
-<!--<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,204 +7,132 @@
   <meta name="description" content="Adam Demski — cybersecurity & software engineering portfolio" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-<head>
- -->
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Czy zostaniesz moją walentynką? 💖</title>
-
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    .valentine-wrapper {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-      position: relative;
-    }
-
-    .valentine-card {
-      background: white;
-      padding: 2.5rem;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-      max-width: 500px;
-      z-index: 2;
-      color: #000;
-    }
-
-    .valentine-card h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .valentine-card p {
-      font-size: 1.2rem;
-    }
-
-    .actions {
-      margin-top: 2rem;
-      position: relative;
-      height: 80px;
-    }
-
-    button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .yes-btn {
-      background: #ff4d6d;
-      color: white;
-    }
-
-    .no-btn {
-      background: #ccc;
-      position: absolute;
-      left: 60%;
-      top: 0;
-    }
-
-    /* 💖 Floating hearts */
-    .heart {
-      position: absolute;
-      bottom: -20px;
-      font-size: 1.5rem;
-      animation: floatUp linear infinite;
-      opacity: 0.8;
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-110vh) scale(1.5);
-        opacity: 0;
-      }
-    }
-
-    #gifContainer img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-top: 1.5rem;
-    }
-  </style>
 </head>
-
 <body>
-
-<main class="valentine-wrapper">
-  <section class="valentine-card">
-    <h1>💖 Czy zostaniesz moją Walentynka? 💖</h1>
-    <div class="actions" id="actions">
-      <button class="yes-btn" id="yesBtn">
-        Tak 💕
-      </button>
-
-      <button class="no-btn" id="noBtn">
-        Nie :C
-      </button>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo"><a href="#top">Adam Demski</a></h1>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <div id="gifContainer" style="display:none;">
-<img
-  src="/assets/tenor.gif"
-  alt="Happy cat jumping"
-/>
+  <main id="top" class="container">
+    <section class="hero card">
+      <h2>Hello I’m <span class="accent">Adam</span></h2>
+      <p class="lead">Security-minded developer focusing on networking, Wireshark, and secure-by-default tooling. This portfolio is still work-in-progress - below are highlights.</p>
+      <p class="actions">
+        <a class="btn" href="#projects">See projects</a>
+         <a href="CV web.pdf" target="_blank" rel="noopener">Download resume </a>
+      </p>
+    </section>
+
+    <section id="about" class="card">
+      <h3>About</h3>
+      <p>Cybersecurity & software engineering enthusiast. I enjoy exploring network captures, automating small tools, and learning secure system design. I’m currently building projects that demonstrate practical skills in packet analysis, automation, and cloud debugging.</p>
+    </section>
+
+    <section id="experience" class="card">
+  <h3>Experience</h3>
+
+  <article class="experience-item">
+    <h4>Technical Support Engineer — Zscaler</h4>
+    <p class="muted">Mar 2025 — Present · Wrocław (Hybrid)</p>
+    <ul>
+      <li>Level 2 support for Zscaler ZIA/ZCC/ZDX products; troubleshoot customer network flows and proxy issues.</li>
+      <li>Analyze packet captures and logs (Wireshark, proxy logs) to identify routing, policy, and TLS issues.</li>
+      <li>Collaborate with engineering teams and document solutions for the internal knowledge base.</li>
+      <li>Provide timely technical responses and guidance to customers and internal stakeholders.</li>
+    </ul>
+  </article>
+
+  <article class="experience-item">
+    <h4>Specialist — Security / IT — LG Energy Solution</h4>
+    <p class="muted">Sep 2024 — Mar 2025 · Wrocław (On-site)</p>
+    <ul>
+      <li>Managed ID card issuance and modifications and configured access control zones and permissions.</li>
+      <li>Operated and troubleshooted physical security systems (ID readers, access control hardware) and related network components.</li>
+      <li>Maintained the Photo Permission system and assisted with physical penetration testing activities.</li>
+      <li>Supported overall security infrastructure to ensure reliable operation of site access systems.</li>
+    </ul>
+  </article>
+
+  <article class="experience-item">
+    <h4>Intern — IT Support — NEONET S.A.</h4>
+    <p class="muted">Apr 2024 — Jun 2024 · Wrocław (On-site)</p>
+    <ul>
+      <li>Handled support tickets and customer inquiries via the ticketing system.</li>
+      <li>Configured and deployed workstations, including hardware, OS, and software setup.</li>
+      <li>Diagnosed and resolved common hardware, software, and local network issues.</li>
+    </ul>
+  </article>
+</section>
+
+
+    <section id="projects" class="card">
+      <h3>Projects</h3>
+      <div class="projects-grid">
+       <div class="project">
+          <h4>Home Lab enviroment</h4>
+          <p>Home lab enviroment for testing purposes, as of now Diagnosed and resolved Wi-Fi connectivity issues on Debian 12 with kernel 6.12 by deploying a DKMS-based Realtek RTL8188EU driver and configuring wireless networking manually. Implemented secure VLAN segmentation to isolate traffic and enhance access control, and enabled remote connectivity using Tailscale for secure peer-to-peer access. I am planning to implement a honeynet, sandbox and a custom packet sniffer in the future but still work in progress</p>
+          <p class="meta"><strong>Tech:</strong>Networking, VLAN, Network Segmenation, Linux, Tailscale</p>
+        </div>
+        
+        <div class="project">
+          <h4>Portfolio Site</h4>
+          <p>Static portfolio deployed on Cloudflare Workers + Assets. Demonstrates deployment, DNS, and CI knowledge.</p>
+          <p class="meta"><strong>Tech:</strong> HTML, CSS, Wrangler</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="card">
+  <h3>Education & Certificates</h3>
+
+  <ul class="certs">
+    <li>
+      <strong>CompTIA Security+</strong><br/>
+      <span class="muted">Issued Dec 2025 · Expires Dec 2028</span><br/>
+      Credential ID: <code>9700d54c84784109bd7e499b8804bb11</code><br/>
+      <a href="/assets/certs/CompTIA Security+.pdf" target="_blank" rel="noopener">Download certificate (PDF)</a>
+      <p class="muted small">Skills: Cryptography · Computer Forensics · Data Security · Disaster Recovery Planning · Firewall Configuration · Malware Identification · Threat Detection · Threat Management · Mobile Device Security · Network Security · Information Security · Access Control</p>
+    </li>
+
+    <li>
+      <strong>Zscaler Digital Transformation Administrator</strong><br/>
+      <span class="muted">Issued Apr 2025 · Expires Apr 2027</span><br/>
+      <a href="/assets/certs/Zscaler Digital Transformation Administraton.pdf" target="_blank" rel="noopener">Download certificate (PDF)</a>
+      <p class="muted small">Skills: Cloud Security · Cybersecurity · Digital Transformation · Network Administration · SaaS · Security Engineering</p>
+    </li>
+
+    <li>
+      <strong>Cybersecurity & Social Engineering — LG Energy Solution</strong><br/>
+      <span class="muted">Issued Nov 2024</span><br/>
+      Credential ID: <code>No. 1124-10</code><br/>
+      <a href="/assets/certs/Cybersecurity & Social Engineering.pdf" target="_blank" rel="noopener">Download certificate (PDF)</a>
+      <p class="muted small">Skills: IT attack vectors · Cybersecurity · Detecting and reacting to phishing and spoofing · Security theory</p>
+    </li>
+  </ul>
+
+
+    <section id="contact" class="card">
+      <h3>Contact</h3>
+      <p>Reach me at <a href="mailto:adamdemski3@gmail.com">adamdemski3@gmail.com</a></p>
+      <p>Or find me on <a href="https://github.com/Disnayz" target="_blank" rel="noopener">GitHub</a>.</p>
+      <p>If you’d like to request my CV, use the email above or download it from the top.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Adam Demski · Built with Cloudflare Workers & Assets</small>
     </div>
-  </section>
-</main>
-
-<script>
-  /* 💖 Floating hearts */
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.textContent = '💖';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = (3 + Math.random() * 4) + 's';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 7000);
-  }
-
-  setInterval(createHeart, 300);
-
-  /* 🏃 No button runs away */
-  const noBtn = document.getElementById('noBtn');
-  noBtn.addEventListener('mouseenter', () => {
-    const x = Math.random() * 300 - 150;
-    const y = Math.random() * 150 - 75;
-    noBtn.style.transform = `translate(${x}px, ${y}px)`;
-  });
-
-  /* 😺 Yes → show GIF */
-  const yesBtn = document.getElementById('yesBtn');
-  const gifContainer = document.getElementById('gifContainer');
-  const actions = document.getElementById('actions');
-
-  yesBtn.addEventListener('click', () => {
-    actions.style.display = 'none';
-    gifContainer.style.display = 'block';
-  });
-</script>
-
-</body>
-</html>
-
-<!-- =========================
-     ORIGINAL PORTFOLIO SITE
-     (COMMENTED OUT – SAFE)
-     ========================= -->
-
-<!--
-<header class="site-header">
-  ...
-</header>
--->
-     
-<!-- =========================
-     ORIGINAL PORTFOLIO SITE
-     (COMMENTED OUT)
-     ========================= -->
-
-<!--
-<header class="site-header">
-  <div class="container header-inner">
-    <h1 class="logo"><a href="#top">Adam Demski</a></h1>
-    <nav class="top-nav" aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main id="top" class="container">
-  ... ENTIRE ORIGINAL CONTENT ...
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <small>© <span id="year"></span> Adam Demski · Built with Cloudflare Workers & Assets</small>
-  </div>
-</footer>
+  </footer>
 
 <script>
   (function() {
@@ -227,8 +155,7 @@
     update();
   })();
 </script>
--->
+
 
 </body>
-
 </html>
